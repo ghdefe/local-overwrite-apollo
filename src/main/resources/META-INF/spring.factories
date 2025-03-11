@@ -1,0 +1,2 @@
+org.springframework.boot.env.EnvironmentPostProcessor=com.github.ghdefe.LocalPropertyLoader
+org.springframework.context.ApplicationContextInitializer=com.github.ghdefe.LocalPropertyLoader
