@@ -1,13 +1,13 @@
-package com.github.ghdefe;
+package com.github.ghdefe.test;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class LocalOverwriteApolloApplicationTests {
+class LocalOverwriteTestApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+    }
 
 }
