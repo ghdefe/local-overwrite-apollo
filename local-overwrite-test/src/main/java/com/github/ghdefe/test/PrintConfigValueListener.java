@@ -1,7 +1,7 @@
-package com.github.ghdefe;
+package com.github.ghdefe.test;
 
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
@@ -19,6 +19,9 @@ public class PrintConfigValueListener implements ApplicationListener<Application
 
     private final String name;
 
+    @Value("${server.port}")
+    private int port;
+
     public PrintConfigValueListener(@Value("${demo.name}") String name) {
         log.debug("创建bean: {}", name);
         this.name = name;
@@ -27,6 +30,7 @@ public class PrintConfigValueListener implements ApplicationListener<Application
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
         log.debug("配置值: {}", name);
+        log.debug("端口值: {}", port);
     }
 }
 

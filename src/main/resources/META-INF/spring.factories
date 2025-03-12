@@ -1,2 +1,3 @@
-org.springframework.boot.env.EnvironmentPostProcessor=com.github.ghdefe.LocalPropertyLoader
-org.springframework.context.ApplicationContextInitializer=com.github.ghdefe.LocalPropertyLoader
+org.springframework.boot.env.EnvironmentPostProcessor=com.github.ghdefe.LocalPropertyFileApplicationContextInitializer
+org.springframework.context.ApplicationContextInitializer=com.github.ghdefe.LocalPropertyFileApplicationContextInitializer
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.github.ghdefe.LocalPropertiesFileConfiguration
