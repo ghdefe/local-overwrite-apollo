@@ -1,6 +1,7 @@
 package com.github.ghdefe;
 
 import org.springframework.core.env.MapPropertySource;
+import org.springframework.core.env.SystemEnvironmentPropertySource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
 
@@ -14,9 +15,9 @@ import java.util.Properties;
  * @Author ggdefe
  * @Date 2025/3/12 15:40
  */
-public class LocalPropertiesFilePropertySource extends MapPropertySource {
-    public LocalPropertiesFilePropertySource(File file) {
-        super("LocalPropertiesFile on ProjectRoot:[" + file.getAbsolutePath() + "]", file2map(file));
+public class LocalEnvFilePropertySource extends SystemEnvironmentPropertySource {
+    public LocalEnvFilePropertySource(File file) {
+        super("LocalEnvFile on ProjectRoot:[" + file.getAbsolutePath() + "]", file2map(file));
     }
 
     private static Map<String, Object> file2map(File file) {
@@ -30,15 +31,5 @@ public class LocalPropertiesFilePropertySource extends MapPropertySource {
         Map<String, Object> map = new LinkedHashMap<>();
         props.forEach((key, value) -> map.put(key.toString(), value));
         return map;
-    }
-
-    @Override
-    public Object getProperty(String name) {
-        return super.getProperty(name);
-    }
-
-    @Override
-    public boolean containsProperty(String name) {
-        return super.containsProperty(name);
     }
 }

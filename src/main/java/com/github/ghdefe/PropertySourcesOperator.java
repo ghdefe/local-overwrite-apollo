@@ -4,8 +4,10 @@ import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.MutablePropertySources;
 import org.springframework.core.env.PropertySource;
 
+import java.util.List;
+
 /**
- * @Author cmz.zeng
+ * @Author ggdefe
  * @Date 2025/3/12 16:58
  */
 public class PropertySourcesOperator {
@@ -16,13 +18,13 @@ public class PropertySourcesOperator {
         if (osName == null || !osName.toLowerCase().contains("window")) {
             return;
         }
-        PropertySource<?> propertySource = LocalPropertiesFilePropertySourceFactory.getPropertySource();
-        if (propertySource == null) {
+        List<PropertySource<?>> localPropertySources = LocalPropertiesPropertySourceFactory.getPropertySource();
+        if (localPropertySources == null) {
             return;
         }
 
         // 将配置插入到所有现有PropertySource的最前端
         MutablePropertySources propertySources = environment.getPropertySources();
-        propertySources.addFirst(propertySource);
+        localPropertySources.forEach(propertySources::addFirst);
     }
 }

@@ -12,7 +12,7 @@ import org.springframework.core.env.Environment;
 /**
  * hook {@link com.ctrip.framework.apollo.spring.config.PropertySourcesProcessor}
  */
-public class LocalPropertiesFileBeanFacatoryPostProcessor implements BeanFactoryPostProcessor, EnvironmentAware, PriorityOrdered {
+public class LocalPropertiesBeanFacatoryPostProcessor implements BeanFactoryPostProcessor, EnvironmentAware, PriorityOrdered {
 
     private ConfigurableEnvironment environment;
 

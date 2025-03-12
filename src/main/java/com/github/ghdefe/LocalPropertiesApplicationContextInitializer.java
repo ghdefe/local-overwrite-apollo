@@ -11,7 +11,7 @@ import org.springframework.core.env.PropertySource;
 /**
  * hook {@link com.ctrip.framework.apollo.spring.boot.ApolloApplicationContextInitializer}
  */
-public class LocalPropertyFileApplicationContextInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext>, EnvironmentPostProcessor, Ordered {
+public class LocalPropertiesApplicationContextInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext>, EnvironmentPostProcessor, Ordered {
 
 
     private PropertySource propertySource;
