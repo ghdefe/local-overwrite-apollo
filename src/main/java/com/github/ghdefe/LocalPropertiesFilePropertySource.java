@@ -1,5 +1,7 @@
 package com.github.ghdefe;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.env.MapPropertySource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
@@ -15,6 +17,9 @@ import java.util.Properties;
  * @Date 2025/3/12 15:40
  */
 public class LocalPropertiesFilePropertySource extends MapPropertySource {
+
+    private static final Logger log = LoggerFactory.getLogger(LocalPropertiesFilePropertySource.class);
+
     public LocalPropertiesFilePropertySource(File file) {
         super("LocalPropertiesFile on ProjectRoot:[" + file.getAbsolutePath() + "]", file2map(file));
     }
@@ -29,6 +34,9 @@ public class LocalPropertiesFilePropertySource extends MapPropertySource {
         }
         Map<String, Object> map = new LinkedHashMap<>();
         props.forEach((key, value) -> map.put(key.toString(), value));
+        if (log.isTraceEnabled()) {
+            log.trace("load file[{}] properties: {}", file.getAbsolutePath(), map);
+        }
         return map;
     }
 

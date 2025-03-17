@@ -1,5 +1,7 @@
 package com.github.ghdefe;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
@@ -14,10 +16,13 @@ import org.springframework.core.env.Environment;
  */
 public class LocalPropertiesBeanFacatoryPostProcessor implements BeanFactoryPostProcessor, EnvironmentAware, PriorityOrdered {
 
+    private static final Logger log = LoggerFactory.getLogger(LocalPropertiesBeanFacatoryPostProcessor.class);
+
     private ConfigurableEnvironment environment;
 
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
+        log.info("postProcessBeanFactory add local propertySource");
         PropertySourcesOperator.addPropertySourceToFirst(environment);
     }
 
@@ -30,7 +35,9 @@ public class LocalPropertiesBeanFacatoryPostProcessor implements BeanFactoryPost
 
     @Override
     public int getOrder() {
-        return Ordered.HIGHEST_PRECEDENCE + 1;
+        int order = Ordered.HIGHEST_PRECEDENCE + 1;
+        log.trace("LocalPropertiesBeanFacatoryPostProcessor getOrder: {}", order);
+        return order;
     }
 }
 

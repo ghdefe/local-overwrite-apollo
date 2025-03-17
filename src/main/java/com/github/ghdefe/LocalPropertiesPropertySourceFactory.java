@@ -1,5 +1,7 @@
 package com.github.ghdefe;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.env.PropertySource;
 import org.springframework.lang.Nullable;
 
@@ -14,6 +16,8 @@ import java.util.Optional;
  */
 public class LocalPropertiesPropertySourceFactory {
 
+    private static final Logger log = LoggerFactory.getLogger(LocalPropertiesPropertySourceFactory.class);
+
     private static List<PropertySource<?>> propertySources;
     private static Boolean isInited = false;
 
@@ -22,6 +26,7 @@ public class LocalPropertiesPropertySourceFactory {
         if (isInited) {
             return propertySources;
         }
+        log.debug("init local propertySources");
         propertySources = new ArrayList<>(4);
         // 初始化
         File userDir = new File(System.getProperty("user.dir"));
@@ -45,6 +50,7 @@ public class LocalPropertiesPropertySourceFactory {
         // 读取根目录下的local.env文件
         File file = new File(dir, filename);
         if (file.exists()) {
+            log.debug("find local file: {}", file.getAbsolutePath());
             return Optional.of(file);
         }
         if (searchLevel <= 0) {
