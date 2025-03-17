@@ -6,4 +6,5 @@ import org.springframework.context.annotation.Import;
 @Configuration
 @Import(LocalPropertiesBeanFacatoryPostProcessor.class)
 public class LocalPropertiesConfiguration {
+
 }
