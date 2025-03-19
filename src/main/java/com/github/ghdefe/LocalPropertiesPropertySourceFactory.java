@@ -47,6 +47,9 @@ public class LocalPropertiesPropertySourceFactory {
     }
 
     private static Optional<File> getLocalFile(File dir, int searchLevel, String filename) {
+        if (dir == null) {
+            return Optional.empty();
+        }
         // 读取根目录下的local.env文件
         File file = new File(dir, filename);
         if (file.exists()) {
@@ -57,7 +60,7 @@ public class LocalPropertiesPropertySourceFactory {
             return Optional.empty();
         }
         // 往上一级找
-        File parentDir = file.getParentFile();
+        File parentDir = dir.getParentFile();
         return getLocalFile(parentDir, searchLevel - 1, filename);
     }
 }

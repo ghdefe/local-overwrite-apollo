@@ -10,7 +10,7 @@
     </parent>
     <groupId>org.eu.defe</groupId>
     <artifactId>local-overwrite-apollo</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
     <name>local-overwrite-apollo</name>
     <description>Load the .env/local.properties file in the root directory of the project, and use this file as Spring properties, which has a higher priority than Apollo.</description>
     <url/>
