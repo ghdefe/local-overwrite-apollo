@@ -25,8 +25,8 @@ public class PropertySourcesOperator {
             return;
         }
         List<PropertySource<?>> localPropertySources = LocalPropertiesPropertySourceFactory.getPropertySource();
-        if (localPropertySources == null) {
-            log.debug("localPropertySources is null, skip");
+        if (localPropertySources == null || localPropertySources.isEmpty()) {
+            log.debug("localPropertySources is empty, skip");
             return;
         }
 
