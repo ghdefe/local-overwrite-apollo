@@ -11,7 +11,7 @@
             <dependency>
                 <groupId>com.github.ghdefe</groupId>
                 <artifactId>local-overwrite-apollo</artifactId>
-                <version>0.0.3</version>
+                <version>0.0.4</version>
             </dependency>
     ```
 1. 本地项目根目录下创建`.env`文件夹, 然后创建`local.properties`或者`local.env`文件  
