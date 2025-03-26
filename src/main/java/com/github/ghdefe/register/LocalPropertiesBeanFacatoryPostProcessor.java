@@ -1,5 +1,6 @@
-package com.github.ghdefe;
+package com.github.ghdefe.register;
 
+import com.github.ghdefe.util.PropertySourcesOperator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
