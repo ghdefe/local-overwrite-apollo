@@ -9,7 +9,7 @@
 1. 引入maven依赖
     ```xml
             <dependency>
-                <groupId>com.github.ghdefe</groupId>
+                <groupId>org.eu.defe</groupId>
                 <artifactId>local-overwrite-apollo</artifactId>
                 <version>0.0.5</version>
             </dependency>
