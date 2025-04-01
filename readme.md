@@ -11,7 +11,7 @@
             <dependency>
                 <groupId>org.eu.defe</groupId>
                 <artifactId>local-overwrite-apollo</artifactId>
-                <version>0.0.5</version>
+                <version>0.0.6</version>
             </dependency>
     ```
 1. 本地项目根目录下创建`.env`文件夹, 然后创建`local.properties`或者`local.env`文件  
